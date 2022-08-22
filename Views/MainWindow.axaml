@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaDemo.ViewModels"
+        x:Class="AvaloniaDemo.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        x:CompileBindings="True"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaDemo">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <ComboBox Margin="12" SelectedIndex="0" HorizontalAlignment="Stretch"
+        Items="{Binding           Foo.Keys}"/>              <!-- WORKS -->
+    <!--Items="{ReflectionBinding Dict.Keys}"/>          --><!-- WORKS -->
+    <!--Items="{Binding           DictKeysWorkAround}"/> --><!-- WORKS -->
+    <!--Items="{Binding           Dict.Keys}"/>          --><!-- FAILS -->
+
+
+</Window>
